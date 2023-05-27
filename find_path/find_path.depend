@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1685191729 source:c:\users\fabia\onedrive\dokumente\technikum\2 ss 2023\algorithmen und datenstrukturen\programmierbeispiele\3\v2\find_path\main.cpp
+	<iostream>
+	<exception>
+	"Graph.h"
+
+1685191767 c:\users\fabia\onedrive\dokumente\technikum\2 ss 2023\algorithmen und datenstrukturen\programmierbeispiele\3\v2\find_path\include\graph.h
+	<string>
+	<fstream>
+	<sstream>
+	<exception>
+	"Station.h"
+
+1685191795 source:c:\users\fabia\onedrive\dokumente\technikum\2 ss 2023\algorithmen und datenstrukturen\programmierbeispiele\3\v2\find_path\src\graph.cpp
+	"Graph.h"
+
+1685191641 c:\users\fabia\onedrive\dokumente\technikum\2 ss 2023\algorithmen und datenstrukturen\programmierbeispiele\3\v2\find_path\include\station.h
+	<string>
+	<vector>
+	<iostream>
+
+1685191677 source:c:\users\fabia\onedrive\dokumente\technikum\2 ss 2023\algorithmen und datenstrukturen\programmierbeispiele\3\v2\find_path\src\station.cpp
+	"Station.h"
+
