@@ -18,6 +18,15 @@ class Station
 
         //Getter
         const std::string getName() const;
+        const int getWeight() const;
+        const std::vector<Station> getConnections() const;
+        const std::string getPredecessor() const;
+        const bool wasVisited() const;
+
+        //Setter
+        void isVisited();
+        void setWeight(int amount);
+        void setPredecessor(std::string name);
 
         //Debug
         void printConnections();
@@ -28,6 +37,9 @@ class Station
         std::string name;
         std::vector<std::string> lines;
         int weight;
+
+        bool visited;
+        std::string predecessor;
 
         std::vector<Station> connections;
 };

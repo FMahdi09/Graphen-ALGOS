@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <exception>
+#include <algorithm>
 
 #include "Station.h"
 
@@ -13,6 +14,9 @@ class Graph
     public:
         //Constructor
         Graph(std::string filepath);
+
+        //Functions
+        void findPath(std::string start, std::string goal);
 
         //Debug
         void printConnections(std::string toPrint);
@@ -23,6 +27,10 @@ class Graph
 
         //Functions
         int createStation(std::string name, std::string line);
+        Station* getStationFromName(std::string name);
+        bool allStationsVisited();
+        Station* getLowestCostStation();
+        void printPath(Station* goal);
 
 };
 

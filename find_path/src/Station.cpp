@@ -5,7 +5,8 @@ Station::Station(std::string line, std::string name)
 {
     this->lines.push_back(line);
     this->name = name;
-    this->weight = -1;
+    this->weight = 10000;
+    visited = false;
 }
 
 Station::Station(std::string line, std::string name, int weight)
@@ -13,6 +14,7 @@ Station::Station(std::string line, std::string name, int weight)
     this->lines.push_back(line);
     this->name = name;
     this->weight = weight;
+    visited = false;
 }
 
 //Functions
@@ -32,6 +34,43 @@ void Station::addLine(std::string newLine)
 const std::string Station::getName() const
 {
     return name;
+}
+
+const int Station::getWeight() const
+{
+    return weight;
+}
+
+const std::vector<Station> Station::getConnections() const
+{
+    return connections;
+}
+
+const std::string Station::getPredecessor() const
+{
+    return predecessor;
+}
+
+const bool Station::wasVisited() const
+{
+    return visited;
+}
+
+//Setter
+
+void Station::isVisited()
+{
+    visited = true;
+}
+
+void Station::setWeight(int amount)
+{
+    weight = amount;
+}
+
+void Station::setPredecessor(std::string name)
+{
+    predecessor = name;
 }
 
 //Debug

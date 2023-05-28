@@ -15,8 +15,10 @@ int main(int argc, char* argv[])
     {
         Graph graph(argv[1]);
 
+        graph.findPath(argv[3], argv[2]);
+
         //Debug
-        graph.printConnections(argv[2]);
+        //graph.printConnections(argv[2]);
     }
     catch(const std::invalid_argument& except)
     {
