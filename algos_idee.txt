@@ -1,0 +1,38 @@
+int counter; 
+curStation;
+prevStation;
+prevprevStation;
+
+void print path(){
+
+	curStaion, getPredecessor, getPrePredecessor;
+	int counter;
+
+	std::cout << goal->getWeight() << std::endl;
+	//wir Printen die aller erste linie aus wo wir beginnen und erhöhen den counter dass wir 1 station bereits in der liste haben
+	goal->getLine(); 
+    	std::cout << goal->getName() << " - ";
+	++counter;
+	
+	while(curStation->getName() != curStation->getPredecessor()){
+		//wir schauen mal ob es mehr als 2 Stationen gibt wenn nein wird nur verglichen ob die erste gleich der 2 Linie entspricht
+		if(counter <2) {
+		if(getPredecessor->getLine != curStation->getLine){
+		//wenn linie != wird die neue (curStation) linie geprintet bevor wir die Station ausgeben
+		curStation->getLine();} 
+			//haben wir mehr als 2 Stationen wird geschaut ob die jetztige und die letzten 2 Stationen auf der gleichen Linie liegen. 
+			else{
+				
+				if(getPrePredecessor->getLine() != getPredecessor->getLine() || getPredecessor->getLine() == curStation->getLine() ){
+				//wenn eine der Linien abweicht wird die vorherige Station geprintet da wir dort umgestiegen sind (wenn ich mich gedanklich nicht irre) 
+				getPredecessor->getLine() ) }
+
+		//gab es keinen Wechsel zwischen den linien wird nur die Station ausgeprintet
+			
+		std::cout << curStation->getName() << " - ";
+        	curStation = getStationFromName(curStation->getPredecessor());}
+		++counter}
+		
+		
+
+			
