@@ -71,6 +71,9 @@ Graph::Graph(std::string filepath)
 
 void Graph::findPath(std::string start, std::string goal)
 {
+    //start Timer
+    auto startTime = std::chrono::steady_clock::now();
+
     Station *curStation, *endStation;
 
     try
@@ -85,7 +88,7 @@ void Graph::findPath(std::string start, std::string goal)
     }
 
     curStation->setWeight(0);
-    curStation->setPredecessor(start);
+    curStation->setPredecessor(curStation);
 
     while(!allStationsVisited())
     {
@@ -105,7 +108,9 @@ void Graph::findPath(std::string start, std::string goal)
                 if(curConnection->getWeight() > totalCost)
                 {
                     curConnection->setWeight(totalCost);
-                    curConnection->setPredecessor(curStation->getName());
+                    curConnection->setPredecessor(curStation);
+                    std::string lineUsed = connections[i].getLine()[0];
+                    curConnection->setLineUsed(lineUsed);
                 }
             }
         }
@@ -116,23 +121,43 @@ void Graph::findPath(std::string start, std::string goal)
         curStation = getLowestCostStation();
     }
 
+    //end Timer and calculate time spent
+    auto endTime = std::chrono::steady_clock::now();
+
+    float elapsed = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+
     //print path
     printPath(endStation);
+
+    //print computational time
+    std::cout << "\nComputation Time: " << elapsed/1000 << " ms\n";
 }
 
 void Graph::printPath(Station* goal)
 {
-    std::cout << goal->getWeight() << std::endl;
+    std::string curLine = goal->getLineUsed();
 
-    std::cout << goal->getName() << " - ";
+    std::cout << "\nTotal Cost: " << goal->getWeight() << "\n";
 
-    Station* curStation = getStationFromName(goal->getPredecessor());
+    std::cout << "\nStarting Line: " << curLine << "\n\n";
 
-    while(curStation->getName() != curStation->getPredecessor())
+    std::cout << goal->getName() << "\n";
+
+    Station* curStation = goal->getPredecessor();
+
+    while(curStation != curStation->getPredecessor())
     {
-        std::cout << curStation->getName() << " - ";
+        std::string newLine = curStation->getLineUsed();
 
-        curStation = getStationFromName(curStation->getPredecessor());
+        std::cout << curStation->getName() << "\n";
+
+        if(curLine != newLine)
+        {
+            std::cout << "\nChange line to: " << newLine << "\n\n";
+            curLine = newLine;
+        }
+
+        curStation = curStation->getPredecessor();
     }
 
     std::cout << curStation->getName() << std::endl;

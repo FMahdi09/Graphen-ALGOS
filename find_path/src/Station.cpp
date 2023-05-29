@@ -36,6 +36,11 @@ const std::string Station::getName() const
     return name;
 }
 
+const std::vector<std::string> Station::getLine() const
+{
+    return lines;
+}
+
 const int Station::getWeight() const
 {
     return weight;
@@ -46,7 +51,7 @@ const std::vector<Station> Station::getConnections() const
     return connections;
 }
 
-const std::string Station::getPredecessor() const
+Station* Station::getPredecessor()
 {
     return predecessor;
 }
@@ -54,6 +59,11 @@ const std::string Station::getPredecessor() const
 const bool Station::wasVisited() const
 {
     return visited;
+}
+
+const std::string Station::getLineUsed() const
+{
+    return lineUsed;
 }
 
 //Setter
@@ -68,9 +78,14 @@ void Station::setWeight(int amount)
     weight = amount;
 }
 
-void Station::setPredecessor(std::string name)
+void Station::setPredecessor(Station* pre)
 {
-    predecessor = name;
+    predecessor = pre;
+}
+
+void Station::setLineUsed(std::string lineUsed)
+{
+    this->lineUsed = lineUsed;
 }
 
 //Debug
